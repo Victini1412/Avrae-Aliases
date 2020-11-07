@@ -94,7 +94,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Fire]"
+            "damage": "DAMAGE+{DMO}[Fire]",
+             "overheal": false,
+             "higher": null,
+             "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -109,10 +112,10 @@
     },
     "attack": "proficiencyBonus+max(SMO,DMO)",
     "damage": {
-      "1": "3d10+{max(SMO,DMO)}",
-      "5": "6d6+{max(SMO,DMO)}",
-      "10": "8d6+{max(SMO,DMO)}",
-      "17": "7d12+{max(SMO,DMO)}"
+      "1": "3d10",
+      "5": "6d6",
+      "10": "8d6",
+      "17": "7d12"
     },
     "PP": 3
   },
@@ -126,7 +129,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Fighting]"
+            "damage": "DAMAGE+{DMO}[Fighting]"
+            "overheal": false,
+            "higher": null,
+            "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -165,7 +171,7 @@
             "end": false
           }],
           "success": [],
-          "dc": "{8+proficiencyBonus+max(DMO,CoMO)}"
+          "dc": "{8+CON}"
         }]
       }, {
         "type": "text",
@@ -187,7 +193,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Poison]"
+            "damage": "DAMAGE+{DMO}[Poison]",
+             \"overheal": false,
+            "higher": null,
+            "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -202,10 +211,10 @@
     },
     "attack": "proficiencyBonus+max(DMO,CoMO)",
     "damage": {
-      "1": "1d10+{max(DMO,CoMO)}",
-      "5": "2d8+{max(DMO,CoMO)}",
-      "10": "2d12+{max(DMO,CoMO)}",
-      "17": "4d8+{max(DMO,CoMO)}"
+      "1": "1d10",
+      "5": "2d8",
+      "10": "2d12",
+      "17": "4d8"
     },
     "PP": 5
   },
@@ -219,7 +228,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Normal]"
+            "damage": "DAMAGE+{DMO}[Normal]",
+            "overheal": false,
+            "higher": null,
+            "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -234,10 +246,10 @@
     },
     "attack": "proficiencyBonus+max(SMO,SMO)",
     "damage": {
-      "1": "1d8+{max(SMO,SMO)}",
-      "5": "2d6+{max(SMO,SMO)}",
-      "10": "4d4+{max(SMO,SMO)}",
-      "17": "3d10+{max(SMO,SMO)}"
+      "1": "1d8",
+      "5": "2d6",
+      "10": "4d4",
+      "17": "3d10"
     },
     "PP": 15
   },
@@ -251,7 +263,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Grass]"
+            "damage": "DAMAGE+{DMO}[Grass]",
+            "overheal": false,
+            "higher": null,
+            "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -266,10 +281,10 @@
     },
     "attack": "proficiencyBonus+max(SMO,DMO)",
     "damage": {
-      "1": "1d6+{max(SMO,DMO)}",
-      "5": "1d12+{max(SMO,DMO)}",
-      "10": "2d8+{max(SMO,DMO)}",
-      "17": "4d6+{max(SMO,DMO)}"
+      "1": "1d6",
+      "5": "1d12",
+      "10": "2d8",
+      "17": "4d6"
     },
     "PP": 15
   },
@@ -283,7 +298,7 @@
           "type": "ieffect",
           "name": "Held attack",
           "duration": "2",
-          "effects": "-attack \"|1d12+{SMO} [Fighting]|\"",
+          "effects": "-attack \"DAMAGE+{DMO}[Fighting]|\"",
           "end": true,
           "conc": false
         }]
@@ -297,10 +312,10 @@
     },
     "attack": "proficiencyBonus+max(SMO,SMO)",
     "damage": {
-      "1": "1d12+{max(SMO,SMO)}",
-      "5": "2d8+{max(SMO,SMO)}",
-      "10": "2d12+{max(SMO,SMO)}",
-      "17": "6d6+{max(SMO,SMO)}"
+      "1": "1d12",
+      "5": "2d8",
+      "10": "2d12",
+      "17": "6d6"
     },
     "PP": 5
   },
@@ -314,7 +329,7 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE [Electric]",
+            "damage": "DAMAGE+{DMO}[Electric]",
             "overheal": false,
             "higher": null,
             "cantripScale": null
@@ -326,16 +341,16 @@
         "type": "text",
         "text": "You lash out with a quick, electric strike before you make a getaway. Make a melee attack, dealing 1d12 + MOVE electric damage on a hit. After this move is activated, a trainer must switch out the user as a free action. Higher Levels: The damage dice roll for this move changes to 2d8 at level 5, 2d12 at level 10, and 6d6 at level 17."
       }],
-      "verb": null,
-      "proper": false,
-      "_v": 2
+      "_v": 2,
+      "proper": true,
+      "verb": null
     },
     "attack": "proficiencyBonus+max(DMO,DMO)",
     "damage": {
-      "1": "1d12+{max(DMO,DMO)}",
-      "5": "2d8+{max(DMO,DMO)}",
-      "10": "2d12+{max(DMO,DMO)}",
-      "17": "6d6+{max(DMO,DMO)}"
+      "1": "1d12",
+      "5": "2d8",
+      "10": "2d12",
+      "17": "6d6"
     },
     "PP": 3
   },
@@ -349,7 +364,10 @@
           "type": "attack",
           "hit": [{
             "type": "damage",
-            "damage": "DAMAGE[Electric]"
+            "damage": "DAMAGE+{DMO}[Electric]",
+            "overheal": false,
+            "higher": null,
+            "cantripScale": null
           }],
           "miss": [],
           "attackBonus": "ATTACK"
@@ -364,10 +382,10 @@
     },
     "attack": "proficiencyBonus+max(SMO,DMO)",
     "damage": {
-      "1": "2d10+{max(SMO,DMO)}",
-      "5": "3d8+{max(SMO,DMO)}",
-      "10": "4d10+{max(SMO,DMO)}",
-      "17": "7d8+{max(SMO,DMO)}"
+      "1": "2d10",
+      "5": "3d8",
+      "10": "4d10",
+      "17": "7d8"
     },
     "PP": 10
   },
